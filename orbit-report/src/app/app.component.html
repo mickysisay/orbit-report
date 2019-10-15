@@ -1,6 +1,14 @@
 
 <app-orbit-list [satellites]="displayList"></app-orbit-list>
-<div class="search-form"><input #searchTerm (keyup.enter)="search(searchTerm.value)" placeholder="search 'all' to get everything" type="text" />
-<button (click)="search(searchTerm.value)">Search</button>
+<div class="search-form"><input #searchTerm (keyup.enter)="search(searchTerm.value,searchType.value)" placeholder="search 'all' to get everything" type="text" />
+   <label for = "search-types"> Search by: </label> 
+    <select #searchType id = "search-types"> 
+            <option value="all">All</option>
+            <option value="name">Name</option>
+            <option value="type">Type</option>
+            <option value="orbitType">Orbit type</option>
+    </select>
+<button (click)="search(searchTerm.value,searchType.value)">Search</button>
+
 </div>
 <app-orbit-counts [satellites]="displayList"></app-orbit-counts>

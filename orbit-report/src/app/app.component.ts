@@ -35,20 +35,27 @@ export class AppComponent {
        }.bind(this));
     }.bind(this));
  }
- search(searchTerm: string): void {
+ search(searchTerm: string, searchValue:string): void {
   let matchingSatellites: Satellite[] = [];
   let all = ["name","orbitType","type"]
   searchTerm = searchTerm.toLowerCase();
+  //console.log(searchValue);
   if(searchTerm.toLowerCase()==="all"){
      matchingSatellites = this.sourceList;
   }else{
   for(let i=0; i < this.sourceList.length; i++) {
      //let name = this.sourceList[i].name.toLowerCase();
+     if(searchValue === "all"){
      for(let j=0;j<all.length;j++){
      if (this.sourceList[i][all[j]].toLowerCase().indexOf(searchTerm) >= 0 && !matchingSatellites.includes(this.sourceList[i])) {
         matchingSatellites.push(this.sourceList[i]);
      }
+   }}else{
+      if(this.sourceList[i][searchValue].toLowerCase().indexOf(searchTerm)>=0){
+         matchingSatellites.push(this.sourceList[i]); 
+      }
    }
+   
   }
 }
   // assign this.displayList to be the the array of matching satellites
