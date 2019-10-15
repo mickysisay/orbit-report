@@ -1,0 +1,5 @@
+<h3>Satellite Counts:</h3>
+<div class="counts" *ngIf = "satellites!==undefined">
+   <div *ngFor="let item of counts() | keyvalue"> {{item.key}} <span>  {{item.value}}</span></div>
+
+</div>

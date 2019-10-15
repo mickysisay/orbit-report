@@ -1,5 +1,5 @@
 export class Satellite {
-   // bool:boolean;
+    //all:string[] = []
     name: string;
     orbitType: string;
     type: string;
@@ -19,4 +19,5 @@ export class Satellite {
         return false;
         
     }
+    
 }
